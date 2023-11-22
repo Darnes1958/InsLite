@@ -38,7 +38,7 @@ class PdfController extends Controller
     }
 
     $reportHtml = view('PrnView.pdf-bank-sum',
-      ['RepTable'=>$res,'cus'=>$cus,'RepDate'=>$RepDate])->render();
+      ['RepTable'=>$res,'cus'=>$cus,'RepDate'=>$RepDate,'By'=>$request->By])->render();
     $arabic = new Arabic();
     $p = $arabic->arIdentify($reportHtml);
 

@@ -80,6 +80,7 @@
           font-size: 12px;
       }
       tr {
+
           line-height: 12px;
       }
       th {
@@ -98,6 +99,7 @@
       }
 
       td {
+
           text-align: right;
           border: 1pt solid  lightgray;
       }

@@ -21,14 +21,17 @@
             </tr>
             </thead>
             <tbody id="addRow" class="addRow">
-            @foreach($RepTable as $key=> $item)
+            @foreach($RepTable as  $item)
                 <tr >
 
                     <td> {{ number_format($item->pay,2, '.', ',') }} </td>
                     <td> {{ number_format($item->sul,2, '.', ',') }} </td>
                     <td> {{ $item->count }} </td>
-                    <td> {{ $item->bank_name }} </td>
-
+                   @if($By==1)
+                      <td> {{ $item->taj_name }} </td>
+                    @else ($By==2)
+                       <td> {{ $item->bank_name }} </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>
