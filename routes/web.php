@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,9 @@ Route::middleware([
   Route::get('/reports/{rep}', function () {
     return view('backend.reports')->with(['rep']);
   })->name('reports');
-
-
-
 });
+
+Route::controller(PdfController::class)->group(function (){
+  route::get('/pdfbanksum/{By}', 'PdfBankSum')->name('pdfbanksum') ;
+});
+

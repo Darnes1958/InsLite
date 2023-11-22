@@ -12,6 +12,7 @@ use Livewire\WithPagination;
 class BankAll extends Component
 {
   use WithPagination;
+  public $By=1;
     public function render()
     {
 

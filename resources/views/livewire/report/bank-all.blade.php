@@ -1,5 +1,26 @@
 <div class="gap-2">
-    <x-table class="table-fixed font-medium ">
+    <div class="flex gap-4">
+        <div class="flex gap-2 my-1 py-1   justify-center">
+            <x-label  for="radio1" value="{{ __('بالتجميعي') }}"/>
+            <x-input type="radio" class="ml-4" wire:model="By" name="radio1" value="1" />
+
+            <x-label  for="radio2" value="{{ __('بفروع المصارف') }}"/>
+            <x-input type="radio" class="ml-4" wire:model="By" name="radio2" value="2"/>
+        </div>
+        <div>
+            <div >
+
+                <a  href="{{route('pdfbanksum',['By'=>$By,])}}"
+                    class="  border-0 mx-2"><i class="fa fa-print"> &nbsp;&nbsp;طباعة&nbsp;&nbsp;</i></a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <div x-show="$wire.By==2">
+    <x-table  class="table-fixed font-medium ">
         <x-slot name="head">
             <x-table.heading  class="w-4/12 text-right ">المصرف</x-table.heading>
             <x-table.heading  class="w-2/12 text-right">العدد</x-table.heading>
@@ -31,8 +52,9 @@
         </x-slot>
     </x-table>
     {{$BankSum->links('Mypaginator')}}
-
-    <x-table class="table-fixed font-medium ">
+</div>
+<div x-show="$wire.By==1">
+    <x-table x-show="$wire.By==1" class="table-fixed font-medium ">
         <x-slot name="head">
             <x-table.heading  class="w-4/12 text-right "> المصرف التجميعي</x-table.heading>
             <x-table.heading  class="w-2/12 text-right">العدد</x-table.heading>
@@ -64,6 +86,7 @@
         </x-slot>
     </x-table>
     {{$TajSum->links('Mypaginator')}}
+</div>
 
 </div>
 
